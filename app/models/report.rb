@@ -3,7 +3,7 @@ class Report < ActiveRecord::Base
   
   def self.calculate(characteristic_ids)
     characteristics= Characteristic.find(characteristic_ids)
-    drug_categories = ["cocaine", "ecstacy", "hallucinogens", "amphetamines", "cannabis", "ketamine", "amyl_nitrate", "any_class_a", "any_stimulant_drug", "any_drug"]
+    drug_categories = ["cocaine", "ecstacy", "hallucinogens", "amphetamines", "cannabis", "ketamine", "any_class_a", "any_stimulant_drug", "any_drug"]
     where_to_find_drug = {}
     drug_categories.each do |drug_category|
       where_to_find_drug[drug_category] = Characteristic.find(:first, :conditions => ["id in (?)", characteristic_ids], :order => "#{drug_category} DESC").name    
@@ -22,9 +22,12 @@ class Report < ActiveRecord::Base
   end
   
   def self.which_drug?(average_percentage)
+    highest = [nil, 0]
     average_percentage.each_pair do |drug, chance|
-      ((chance / Report::AVERAGE[drug]) - 1) * 100
+      this ||= [drug, ((chance / Report::AVERAGE[drug]) - 1) * 100]
+      highest = this if this[1] > highest[1]
     end
+    highest[0]
   end
   
   def self.mean_array(arr)
