@@ -1,0 +1,11 @@
+<% form_tag reports_path do %>
+  <% @characteristics.each_pair do |category, names| %>
+    <p>
+      <label>
+        <%= category %>: 
+        <%= select_tag "report[#{category}]", options_for_select([["",nil]]+names.map{|x| [x.name, x.id]}) %>
+      </label>
+    </p>
+  <% end %>
+  <%= submit_tag %>
+<% end %>

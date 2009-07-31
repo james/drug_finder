@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Drug</th>
+    <th>Average</th>
+    <th>Your probability</th>
+    <th>Difference</th>
+  </tr>
+  <% @report.each_pair do |drug, chance| %>
+    <% difference = chance - Report::AVERAGE[drug] %>
+    <tr class="<%= difference > 0 ? 'higher' : 'lower' %>">
+      <td><%= drug %></td>
+      <td><%= Report::AVERAGE[drug] %>%</td>
+      <td><%= chance.round(1) %>%</td>
+      <td><%= difference.round(1) %>%</td>
+    </tr>
+  <% end %>
+</table>
