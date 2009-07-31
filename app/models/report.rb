@@ -21,6 +21,12 @@ class Report < ActiveRecord::Base
     average_percentage
   end
   
+  def self.which_drug?(average_percentage)
+    average_percentage.each_pair do |drug, chance|
+      ((chance / Report::AVERAGE[drug]) - 1) * 100
+    end
+  end
+  
   def self.mean_array(arr)
     sum = arr.inject( nil ) { |sum,x| sum ? sum+x : x }
     sum / arr.size
