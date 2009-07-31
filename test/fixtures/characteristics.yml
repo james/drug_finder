@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  category: MyString
+  cocaine: 1.5
+  ecstacy: 1.5
+  hallucinogens: 1.5
+  amphetamines: 1.5
+  cannabis: 1.5
+  ketamine: 1.5
+  amyl_nitrate: 1.5
+  any_class_a: 1.5
+  any_stimulant_drug: 1.5
+  any_drug: 1.5
+
+two:
+  name: MyString
+  category: MyString
+  cocaine: 1.5
+  ecstacy: 1.5
+  hallucinogens: 1.5
+  amphetamines: 1.5
+  cannabis: 1.5
+  ketamine: 1.5
+  amyl_nitrate: 1.5
+  any_class_a: 1.5
+  any_stimulant_drug: 1.5
+  any_drug: 1.5
