@@ -1,4 +1,13 @@
 class ReportsController < ApplicationController
+  def index
+    if params[:report]
+      create
+      render :action => "create"
+    else
+      new
+      render :action => "new"
+    end
+  end
   def new
     #dirty
     @characteristic_categories = Characteristic.find(:all, :group => "category", :select => "category")

@@ -1,4 +1,4 @@
-<% form_tag reports_path do %>
+<% form_tag root_path, :method => :get do %>
   <% @characteristics.each_pair do |category, names| %>
     <p>
       <label>
