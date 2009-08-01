@@ -1,3 +1,5 @@
+<p>All field are optional, the more you complete, the more accurate the result.</p>
+
 <% form_tag root_path, :method => :get do %>
   <% @characteristics.each_pair do |category, names| %>
     <p>
@@ -7,5 +9,5 @@
       </label>
     </p>
   <% end %>
-  <%= submit_tag %>
+  <%= submit_tag "Compare" %>
 <% end %>
